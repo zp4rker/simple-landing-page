@@ -10,7 +10,7 @@ body {
 }
 
 #apexContainer {
-    padding: 2vw;
+    padding: 4vw;
     border-radius: 15px;
     backdrop-filter: blur(5px);
     background: rgba(0, 0, 0, 0.3);
@@ -31,8 +31,6 @@ body {
     color: #fff;
     font-family: 'Fira Code';
     font-size: 4vw;
-    margin-top: 3vw;
-    /* line-height: 10vw; */
     font-weight: 600;
     text-align: center;
 }
@@ -42,13 +40,12 @@ body {
     font-family: 'Fira Code';
     font-size: 2vw;
     font-weight: 300;
-    margin-bottom: 2vw;
+    margin-bottom: 3vw;
     text-align: center;
 }
 
 #bookmarksContainer {
     margin: 0%;
-    margin-bottom: 3vw;
     padding: 0%;
     text-align: center;
 }
