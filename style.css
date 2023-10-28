@@ -62,6 +62,11 @@ body {
     transform: scale(1.2);
 }
 
+.bookmark i {
+    font-size: 3vw;
+    color: #fff;
+}
+
 .bookmark img {
     width: 3vw;
 }
