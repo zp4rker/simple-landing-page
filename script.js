@@ -1,4 +1,6 @@
-function main() {}
+async function main() {
+    await new Promise(r => setTimeout(r, 350));
+    document.querySelector("#apexContainer").style.display = "block"
+}
 
-// run main after window loads
 window.onload = main;
