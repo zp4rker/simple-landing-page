@@ -1,50 +1,4 @@
 function main() {
-
-    // --- HEADING --- //
-
-    const headingContainer = document.querySelector("#headingContainer");
-    const headingContentSetting = document.querySelector("#headingContentSetting");
-    const headingColorSetting = document.querySelector("#headingColorSetting");
-    const headingFontSetting = document.querySelector("#headingFontSetting");
-    const headingFontSizeSetting = document.querySelector("#headingFontSizeSetting");
-
-    // Load User Prefs
-    if (localStorage.getItem("headingContent") != null) {
-        headingContainer.innerHTML = headingContentSetting.value = localStorage.getItem("headingContent");
-    }
-    if (localStorage.getItem("headingColor") != null) {
-        headingContainer.style.color = headingColorSetting.value = localStorage.getItem("headingColor");
-    }
-    if (localStorage.getItem("headingFont") != null) {
-        headingContainer.style.fontFamily = headingFontSetting.value = localStorage.getItem("headingFont");
-    }
-    if (localStorage.getItem("headingFontSize") != null) {
-        headingContainer.style.fontSize = `${localStorage.getItem("headingFontSize")}vw`;
-        headingFontSizeSetting.value = localStorage.getItem("headingFontSize");
-    }
-
-    // make settings work
-    headingContentSetting.oninput = function () {
-        var newValue = headingContentSetting.value;
-        headingContainer.innerHTML = newValue;
-        localStorage.setItem("headingContent", newValue);
-    }
-    headingColorSetting.oninput = function () {
-        var newValue = headingColorSetting.value;
-        headingContainer.style.color = newValue;
-        localStorage.setItem("headingColor", newValue);
-    }
-    headingFontSetting.oninput = function () {
-        var newValue = headingFontSetting.value;
-        headingContainer.style.fontFamily = newValue;
-        localStorage.setItem("headingFont", newValue);
-    }
-    headingFontSizeSetting.oninput = function () {
-        var newValue = headingFontSizeSetting.value;
-        headingContainer.style.fontSize = `${newValue}vw`;
-        localStorage.setItem("headingFontSize", newValue);
-    }
-
     // --- BOOKMARKS --- //
 
     const aB1 = document.querySelector("#aB1");
@@ -171,7 +125,6 @@ function main() {
 
     const settingsIcon = document.querySelector("#b5");
     const settingsContainer = document.querySelector("#settingsContainer");
-    const headingSettingsContainer = document.querySelector("#headingSettingsContainer");
     const bookmarkSettingsContainer = document.querySelector("#bookmarkSettingsContainer");
     const generalSettingsContainer = document.querySelector("#generalSettingsContainer");
 
@@ -185,18 +138,11 @@ function main() {
     }
 
     // make settings category container work
-    document.querySelector("#headingSettingCategory").onclick = function () {
-        headingSettingsContainer.style.display = 'grid';
-        bookmarkSettingsContainer.style.display = 'none';
-        generalSettingsContainer.style.display = 'none';
-    }
     document.querySelector("#bookmarkSettingCategory").onclick = function () {
-        headingSettingsContainer.style.display = 'none';
         bookmarkSettingsContainer.style.display = 'grid';
         generalSettingsContainer.style.display = 'none';
     }
     document.querySelector("#generalSettingCategory").onclick = function () {
-        headingSettingsContainer.style.display = 'none';
         bookmarkSettingsContainer.style.display = 'none';
         generalSettingsContainer.style.display = 'grid';
     }
