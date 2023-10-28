@@ -64,11 +64,8 @@ body {
 
 .bookmark i {
     font-size: 3vw;
+    padding: 0.25vw;
     color: #fff;
-}
-
-.bookmark img {
-    width: 3vw;
 }
 
 #categoryContainer {
