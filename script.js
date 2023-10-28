@@ -89,44 +89,11 @@ function main() {
         localStorage.setItem("imgB4", newValue);
     }
 
-    // --- GENERAL --- //
-
-    const body = document.querySelector("body");
-    const apexContainer = document.querySelector("#apexContainer");
-    const generalBackgroundSetting = document.querySelector("#generalBackgroundSetting");
-    const generalBlurIntensitySetting = document.querySelector("#generalBlurIntensitySetting");
-
-    // load user prefs
-    if (localStorage.getItem("generalBackground") != null) {
-        body.style.backgroundImage = `url(${localStorage.getItem("generalBackground")})`;
-        generalBackgroundSetting.value = localStorage.getItem("generalBackground");
-    } else {
-        body.style.backgroundImage = "url('assets/calvin.jpg')";
-        generalBackgroundSetting.value = "assets/calvin.jpg";
-    }
-    if (localStorage.getItem("generalBlurIntensity") != null) {
-        apexContainer.style.backdropFilter = `blur(${localStorage.getItem("generalBlurIntensity")}px)`;
-        generalBlurIntensitySetting.value = localStorage.getItem("generalBlurIntensity");
-    }
-
-    // make settings work
-    generalBackgroundSetting.oninput = function () {
-        var newValue = generalBackgroundSetting.value;
-        body.style.backgroundImage = `url(${newValue})`;
-        localStorage.setItem("generalBackground", newValue);
-    }
-    generalBlurIntensitySetting.oninput = function () {
-        var newValue = generalBlurIntensitySetting.value;
-        apexContainer.style.backdropFilter = `blur(${newValue}px)`;
-        localStorage.setItem("generalBlurIntensity", newValue);
-    }
-
     // --- SETTINGS --- //
 
     const settingsIcon = document.querySelector("#b5");
     const settingsContainer = document.querySelector("#settingsContainer");
     const bookmarkSettingsContainer = document.querySelector("#bookmarkSettingsContainer");
-    const generalSettingsContainer = document.querySelector("#generalSettingsContainer");
 
     // make settings icon display settings when clicked
     settingsIcon.onclick = function () {
@@ -140,11 +107,6 @@ function main() {
     // make settings category container work
     document.querySelector("#bookmarkSettingCategory").onclick = function () {
         bookmarkSettingsContainer.style.display = 'grid';
-        generalSettingsContainer.style.display = 'none';
-    }
-    document.querySelector("#generalSettingCategory").onclick = function () {
-        bookmarkSettingsContainer.style.display = 'none';
-        generalSettingsContainer.style.display = 'grid';
     }
 }
 
