@@ -62,23 +62,6 @@ body {
     width: 3vw;
 }
 
-#settingsContainer {
-    font-family: 'Fira Code';
-    color: #fff;
-    display: grid;
-    grid-template-rows: 0.1fr 1fr;
-    animation: settingsAnimation 100ms linear 0s 1;
-}
-
-@keyframes settingsAnimation {
-    0% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 100%;
-    }
-}
-
 #categoryContainer {
     text-align: center;
     padding: 1vw;
