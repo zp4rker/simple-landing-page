@@ -1,20 +1,3 @@
-function displayClock() {
-    const clockContainer = document.querySelector("#clockContainer");
-    let date = new Date();
-    let hrs = date.getHours();
-    let min = date.getMinutes();
-    if (hrs > 12) {
-        hrs = hrs - 12
-    }
-    if (hrs < 10) {
-        hrs = "0" + hrs
-    }
-    if (min < 10) {
-        min = "0" + min
-    }
-    clockContainer.innerHTML = hrs + ':' + min;
-}
-
 function main() {
 
     // --- HEADING --- //
@@ -61,56 +44,6 @@ function main() {
         headingContainer.style.fontSize = `${newValue}vw`;
         localStorage.setItem("headingFontSize", newValue);
     }
-
-    // --- CLOCK --- //
-
-    const clockContainer = document.querySelector("#clockContainer");
-    const clockColorSetting = document.querySelector("#clockColorSetting");
-    const clockFontSetting = document.querySelector("#clockFontSetting");
-    const clockFontSizeSetting = document.querySelector("#clockFontSizeSetting");
-    const clockLineHeightSetting = document.querySelector("#clockLineHeightSetting");
-
-    // load user prefs
-    if (localStorage.getItem("clockColor") != null) {
-        clockContainer.style.color = clockColorSetting.value = localStorage.getItem("clockColor");
-    }
-    if (localStorage.getItem("clockFont") != null) {
-        clockContainer.style.fontFamily = clockFontSetting.value = localStorage.getItem("clockFont");
-    }
-    if (localStorage.getItem("clockFontSize") != null) {
-        clockContainer.style.fontSize = `${localStorage.getItem("clockFontSize")}vw`;
-        clockFontSizeSetting.value = localStorage.getItem("clockFontSize");
-    }
-    if (localStorage.getItem("clockLineHeight") != null) {
-        clockContainer.style.lineHeight = `${localStorage.getItem("clockLineHeight")}vw`;
-        clockLineHeightSetting.value = localStorage.getItem("clockLineHeight");
-    }
-
-    // make settings work
-    clockColorSetting.oninput = function () {
-        var newValue = clockColorSetting.value;
-        clockContainer.style.color = newValue;
-        localStorage.setItem("clockColor", newValue);
-    }
-    clockFontSetting.oninput = function () {
-        var newValue = clockFontSetting.value;
-        clockContainer.style.fontFamily = newValue;
-        localStorage.setItem("clockFont", newValue);
-    }
-    clockFontSizeSetting.oninput = function () {
-        var newValue = clockFontSizeSetting.value;
-        clockContainer.style.fontSize = `${newValue}vw`;
-        localStorage.setItem("clockFontSize", newValue);
-    }
-    clockLineHeightSetting.oninput = function () {
-        var newValue = clockLineHeightSetting.value;
-        clockContainer.style.lineHeight = `${newValue}vw`;
-        localStorage.setItem("clockLineHeight", newValue);
-    }
-
-    // display correct time and update it every 1000ms
-    displayClock();
-    setInterval(displayClock, 1000);
 
     // --- BOOKMARKS --- //
 
@@ -239,7 +172,6 @@ function main() {
     const settingsIcon = document.querySelector("#b5");
     const settingsContainer = document.querySelector("#settingsContainer");
     const headingSettingsContainer = document.querySelector("#headingSettingsContainer");
-    const clockSettingsContainer = document.querySelector("#clockSettingsContainer");
     const bookmarkSettingsContainer = document.querySelector("#bookmarkSettingsContainer");
     const generalSettingsContainer = document.querySelector("#generalSettingsContainer");
 
@@ -255,25 +187,16 @@ function main() {
     // make settings category container work
     document.querySelector("#headingSettingCategory").onclick = function () {
         headingSettingsContainer.style.display = 'grid';
-        clockSettingsContainer.style.display = 'none';
-        bookmarkSettingsContainer.style.display = 'none';
-        generalSettingsContainer.style.display = 'none';
-    }
-    document.querySelector("#clockSettingCategory").onclick = function () {
-        headingSettingsContainer.style.display = 'none';
-        clockSettingsContainer.style.display = 'grid';
         bookmarkSettingsContainer.style.display = 'none';
         generalSettingsContainer.style.display = 'none';
     }
     document.querySelector("#bookmarkSettingCategory").onclick = function () {
         headingSettingsContainer.style.display = 'none';
-        clockSettingsContainer.style.display = 'none';
         bookmarkSettingsContainer.style.display = 'grid';
         generalSettingsContainer.style.display = 'none';
     }
     document.querySelector("#generalSettingCategory").onclick = function () {
         headingSettingsContainer.style.display = 'none';
-        clockSettingsContainer.style.display = 'none';
         bookmarkSettingsContainer.style.display = 'none';
         generalSettingsContainer.style.display = 'grid';
     }
